@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "8.10.0"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "start:prod": "npm run client && npm run buildDocker",
+    "client": "npm install --prefix app && npm run build --prefix app",
+    "buildDocker": "docker build -t node-web-app . && npm run runDocker",
+    "runDocker": "docker run -p 8080:8080 --env NODE_ENV='prod' --env PORT=8080 -d node-web-app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.5",
+    "express": "^4.16.2",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "nodemon": "^1.17.1",
+    "path-parser": "^4.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "23.6.0",
+    "superagent": "^5.0.5",
+    "supertest": "^4.0.2"
+  }
+}

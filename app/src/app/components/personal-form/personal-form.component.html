@@ -1,0 +1,56 @@
+<div class="personal-detail">
+  <h4 class="personal-detail__header">PIZZA ORDER</h4>
+  <h5 class="personal-detail__subheader"> Basic Information </h5>
+  <hr>
+  <form (ngSubmit)="onSubmit($event)" [formGroup]="parentForm">
+    <div class="row" formGroupName="details">
+      <div class="form-group col-sm-6">
+        <label>
+          Name*
+          <span
+            *ngIf="parentForm.get('details').get('name').hasError('required') && parentForm.get('details').get('name').touched"
+            class="error">
+            Field is required
+          </span>
+        </label>
+        <input class="form-control" formControlName="name" type="text" placeholder="Name">
+      </div>
+      <div class="form-group col-sm-6">
+        <label>
+          Email
+          <span *ngIf="parentForm.get('details').get('email').errors && parentForm.get('details').get('email').touched"
+            class="error">
+            Field is required
+          </span>
+        </label>
+        <input class="form-control" formControlName="email" type="email" placeholder="Email">
+      </div>
+      <div class="form-group col-sm-6">
+        <label>
+          Address*
+          <span
+            *ngIf="parentForm.get('details').get('address').errors && parentForm.get('details').get('address').touched"
+            class="error">
+            <span *ngIf="parentForm.get('details').get('address').hasError('required')">
+              Field is required
+            </span>
+            <span *ngIf="parentForm.get('details').get('address').hasError('minlength')">
+              Min of 3 characters
+            </span>
+          </span>
+        </label>
+        <input class="form-control" formControlName="address" type="text" placeholder="Address">
+      </div>
+      <div class="form-group col-sm-6">
+        <label>
+          Contact Number *
+          <span *ngIf="parentForm.get('details').get('phone').errors && parentForm.get('details').get('phone').touched"
+            class="error">
+            Field is required
+          </span>
+        </label>
+        <input class="form-control" formControlName="phone" type="text" placeholder="Contact Number">
+      </div>
+    </div>
+  </form>
+</div>

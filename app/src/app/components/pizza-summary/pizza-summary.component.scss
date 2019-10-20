@@ -1,0 +1,40 @@
+.pizza-summary{
+    &__size,
+    &__toppings{
+        display:flex;
+        width:100%;
+    }
+    
+    &__size{
+        &__name{
+            width:20%;
+            margin-bottom: 10px;
+        }
+        &__price{
+            width:20%;
+            text-align: right;
+        } 
+
+        &__divider{
+            width:60%;
+            border: 0.1px dashed gray;
+            margin: auto;
+        }
+    }
+
+
+    &__toppings{
+        &__name{
+            width:80%;
+            margin-left: 20px;
+        }
+        &__price{
+            width:20%;
+            text-align:right;
+        }
+    }
+
+    &__price{
+        text-align: right;
+    }
+}

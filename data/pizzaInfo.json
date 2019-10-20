@@ -1,0 +1,7 @@
+ {
+   "sizes": ["large", "medium", "small"],
+   "toppings": [
+     "bacon", "pepperoni", "mushroom", "olive", "basil", "sweetcorn",
+     "onion", "tomato"
+   ]
+ }

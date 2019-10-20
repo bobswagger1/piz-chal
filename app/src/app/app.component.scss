@@ -1,0 +1,16 @@
+@import '../variables.scss';
+.app {
+  height: 50vh;
+  display: flex;
+  flex: 1 1;
+  background-color: $primary;
+}
+
+.page {
+  width: 100%;
+  height: auto;
+  flex-flow: column wrap;
+  transition: 0.4s;
+  margin-right: 5%;
+  border-radius: 5px;
+}

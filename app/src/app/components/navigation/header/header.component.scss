@@ -1,0 +1,27 @@
+@import '../../../../variables.scss';
+
+.navbar {
+  background-color: $primary;
+  height: 10%;
+  display:flex;
+  justify-content: flex-start;
+  
+  .logo{
+    height: 70px;
+    width: 180px;
+  }
+  
+  &__text{
+    margin-top: 10px;
+    margin-left: 75px;
+    p{
+      margin:0;
+      color:white;
+      &:nth-child(2){
+        color:gray;
+        font-size: 10px;
+      }
+    }
+
+  }
+}

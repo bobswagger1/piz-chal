@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-sm-9">
+    <h5>Choose your pizza</h5>
+  </div>
+  <div class="col-sm-3">
+    <button (click)="addPizza()" class="float-right btn btn-outline-success btn-sm">
+      Add Pizza
+    </button>
+  </div>
+</div>
+
+<div [formGroup]="pizza" class="pizza" *ngFor="let pizza of pizzasForm.controls; let i= index">
+  <div class="pizza__header row">
+    <div class="pizza__header__title col-sm-12" 
+      [attr.aria-expanded]="!isCollapsed" 
+      aria-controls="collapseExample">
+      <h5 (click)="isCollapsed[i] = !isCollapsed[i]">PIZZA {{i+1}}</h5>
+      <div class="float-right">
+        <button 
+        (click)="removePizza(i)"
+        class="pizza__header__title__remove-btn btn btn-outline-danger btn-sm" 
+        *ngIf="pizzasForm.controls.length > 1">
+        Remove Pizza
+      </button>
+        <span class="pizza__header__title__btn" (click)="isCollapsed[i] = !isCollapsed[i]">
+          <i *ngIf="!isCollapsed[i]" class="fas fa-caret-up"></i>
+          <i *ngIf="isCollapsed[i]" class="fas fa-caret-down"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div [ngbCollapse]="isCollapsed[i]">
+    <div class="pizza__size row" *ngIf="pizzaInfo">
+      <label class="col-sm-12 pizza__size__title" for="size">Choose Size</label>
+      <div class="pizza__size__btn col-sm-2" *ngFor="let size of pizzaInfo.sizes">
+        <input 
+          formControlName="size" 
+          type="radio" name="" 
+          [value]="size" 
+          (change)="updateSize(size, i)">
+        <label for="size">
+          {{size | uppercase}}
+        </label>
+      </div>
+    </div>
+    <div class="pizza__toppings row" *ngIf="pizzaInfo">
+      <label class="col-sm-12 pizza__toppings__title" for="toppings">Pick your toppings</label>
+      <div *ngFor="let topping of pizzaInfo.toppings" class="col-md-3 col-sm-4 pizza__toppings__checkbox">
+        <input 
+          class="checkbox-custom" 
+          type="checkbox" 
+          (change)="updateTopping(topping,i)"
+          [attr.name]="topping"
+          [attr.value]="topping"
+         >
+        <label class="checkbox-custom-label form-check-label" for="defaultCheck1">
+          {{topping | uppercase }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

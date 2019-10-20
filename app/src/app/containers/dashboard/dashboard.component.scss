@@ -1,0 +1,103 @@
+@import '../../../styles.scss';
+.dashboard {
+    padding: 40px;
+    height: auto;
+    background-color: white;
+    .dashboard-top{
+        &__left{
+            &--divider{
+                border-right: 1px solid gray;
+            }
+            &__header{
+                text-align: center;
+                &__title{
+                    margin-bottom: 25px;
+                    color:$dark-text;
+                }
+            }
+            &__pie-progress{
+                display: flex;
+                &__delivered,
+                &__pending{
+                    text-align: center;
+                    font-size: 12px;
+                    color: gray;
+                }
+            }
+        }
+        &__right{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &__title{
+                color:$dark-text;
+            }
+            &__currency{
+                font-size: 12px;
+                color: gray;
+                margin-bottom: 10px;
+                display: block;
+            }
+            &__amount{
+                color:$dark-text;
+            }
+        }
+    }
+
+    .dashboard-bottom{
+        &__left{
+            border-right: 1px solid gray;
+            text-align: center;
+            padding-top: 35px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding-right: 100px;
+            span{
+                font-size: 12px;
+                font-weight: 600;
+            }
+            &__chart{
+     
+                margin-top: 20px;
+                width:80%!important;
+                height: 100% !important;
+            }
+            
+        }
+        &__right{
+            text-align: center;
+            .bg-late{
+                background-color: #ff5660
+            }
+            .bg-on-time{
+                background-color: #25CDB9;
+            }
+            &__title{
+                font-size: 12px;
+                font-weight: 600;
+            }
+            &__time-report{
+                display: flex;
+                justify-content: space-around;
+                &__on-time,
+                &__late{
+                    display: flex;
+                    flex-direction: column;
+                    &__title{
+                        font-size: 12px;
+                        color: gray;
+                    }
+                    &__detail{
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+  }
+
+  
+  

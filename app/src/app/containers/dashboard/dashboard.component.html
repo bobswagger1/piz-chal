@@ -1,0 +1,86 @@
+<div class="container dashboard">
+    <div class="row">
+            <div class="dashboard-top__left col-sm-6 dashboard-top__left--divider">
+                    <div class="dashboard-top__left__header">
+                        <h4 class="dashboard-top__left__header__title">DELIVERY STATUS</h4>
+                        <h5 class="dashboard-top__left__header__subtitle">Total Orders</h5>        
+                        <h5 class="dashboard-top__left__header__count">{{reports.completed + reports.pendings}}</h5>
+                    </div>
+                    
+                    <div class="dashboard-top__left__pie-progress">
+                        <div class="dashboard-top__left__pie-progress__delivered">
+                            <circle-progress
+                                [percent]="reports.completed"
+                                [radius]="80"
+                                [outerStrokeWidth]="10"
+                                [innerStrokeWidth]="8"
+                                [outerStrokeColor]="'#25CDB9'"
+                                [innerStrokeColor]="'#E8E8E8'"
+                                [animationDuration]="300"
+                                [responsive]="true"
+                            ></circle-progress>
+                            <span>Orders Delivered</span>
+                        </div>    
+                        
+                        <div class="dashboard-top__left__pie-progress__pending">
+                            <circle-progress
+                                [percent]="reports.pendings"
+                                [radius]="80"
+                                [outerStrokeWidth]="10"
+                                [innerStrokeWidth]="8"
+                                [outerStrokeColor]="'#ff5660'"
+                                [innerStrokeColor]="'#E8E8E8'"
+                                [animationDuration]="300"
+                                [responsive]="true"
+                            ></circle-progress>
+                            <span>Orders Pending</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-top__right col-sm-6">
+                    <div class="dashboard-top__right__sales">
+                        <h4 class="dashboard-top__right__title">TOTAL SALES</h4>
+                        <span class="dashboard-top__right__currency">USD</span>
+                        <h1 class="dashboard-top__right__amount">{{reports.totalSales}}</h1>
+                    </div>
+                </div>
+                
+                <div class="col-sm-7 dashboard-bottom__left">
+                        <span>ORDER HISTORY</span>
+                        <canvas class="dashboard-bottom__left__chart" #lineChart>{{ chart }}</canvas>
+                </div>
+                <div class="col-sm-5">
+                    <div class="dashboard-bottom__right">
+                        <span class="dashboard-bottom__right__title">REPORT</span>
+                        <div class="dashboard-bottom__right__time-report">
+                            <div class="dashboard-bottom__right__time-report__on-time">
+                                <span class="dashboard-bottom__right__time-report__on-time__title">Ontime Delivery</span>
+                                <div class="dashboard-bottom__right__time-report__on-time__detail">+29.7%</div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-on-time" 
+                                    role="progressbar" 
+                                    style="width: 30%" 
+                                    aria-valuenow="25" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="dashboard-bottom__right__time-report__late">
+                                <span class="dashboard-bottom__right__time-report__late__title">Late Delivery</span>
+                                <span class="dashboard-bottom__right__time-report__late__detail">53.4%</span>
+                                <div class="progress">
+                                        <div class="progress-bar bg-late" 
+                                        role="progressbar" 
+                                        style="width: 54%" 
+                                        aria-valuenow="25" 
+                                        aria-valuemin="0" 
+                                        aria-valuemax="100"></div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    
+   
+</div>

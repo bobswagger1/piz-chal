@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-9">
+    <h5>Summary</h5>
+  </div>
+</div>
+<hr>
+<div class="row" *ngIf="prices">
+  <div class="pizza-summary__pizza col-sm-12" *ngFor="let pizza of pizzasForm.value; let i=index">
+    <div class="pizza-summary__size">
+      <div class="pizza-summary__size__name">
+        {{PizzaNames.size[pizza.size]}} {{ i + 1 }}
+      </div>
+      <div class="pizza-summary__size__divider">
+      </div>
+
+      <div class="pizza-summary__size__price">
+        {{prices.size[pizza.size] | currency }}
+      </div>
+    </div>
+    <div class="pizza-summary__toppings" *ngFor="let topping of pizza.toppings">
+      <div class="pizza-summary__toppings__name">
+        {{topping | titlecase}}
+      </div>
+      <div class="pizza-summary__toppings__price">
+        {{prices.toppings[topping] | currency}}
+      </div>
+
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="pizza-summary__total">
+      <h5>TOTAL</h5>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="pizza-summary__price">
+      <h5>{{prices.total | currency}}</h5>
+    </div>
+  </div>
+</div>

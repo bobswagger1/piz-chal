@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables.scss';
+@import 'checkbox.scss';
+
+html,
+body {
+  height: 100%;
+  background-color: white !important;
+  p,h1,h2,h3,h4,h5,label{
+    color:#494949;
+  }
+
+  .error{
+    color: $warning-text;
+  }
+  
+  .container{
+    max-width: 100%;
+  }
+}
